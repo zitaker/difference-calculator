@@ -7,3 +7,5 @@ first_installation::
 #poetry run gendiff
 #poetry run python -m gendiff.scripts.diff
 #gendiff -h
+#poetry run gendiff --help
+#poetry run gendiff -h
