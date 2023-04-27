@@ -9,3 +9,4 @@ first_installation::
 #gendiff -h
 #poetry run gendiff --help
 #poetry run gendiff -h
+#gendiff file1.json file2.yml
