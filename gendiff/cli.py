@@ -9,7 +9,3 @@ def parse_args():
     parser.add_argument('second_file')      # option that takes a value
     parser.add_argument('-f FORMAT', '--format FORMAT',  help='set format of output', action='store_true')  # on/off flag
     return parser.parse_args()
-
-
-def generate_diff():
-    print('12')

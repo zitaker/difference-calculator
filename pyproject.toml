@@ -16,3 +16,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.diff:main"
+gendiff-file = "gendiff.json_files.comparison_of_flat_files:main"
