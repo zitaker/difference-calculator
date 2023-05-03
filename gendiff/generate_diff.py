@@ -1,17 +1,11 @@
 import json
+from scripts.constants import PLUS, MINUS, SPASE
 
 
-def generate_diff():
-    # вводим два файла
-    string_as_json_format1 = open('file1_json.json')
-    obj1 = json.loads(string_as_json_format1.read())
-
-    string_as_json_format2 = open('file2_json.json')
-    obj2 = json.loads(string_as_json_format2.read())
-
-    PLUS = " + "
-    MINUS = " - "
-    SPASE = "   "
+def diff_generate(file1, file2):
+    # определяем два файла для чтения человека
+    obj1 = json.loads(file1.read())
+    obj2 = json.loads(file2.read())
 
     # переводим файлы в списки
     obj1_translate_in_list = list(obj1.items())
@@ -72,7 +66,9 @@ def generate_diff():
     sort_alphabetically_str9 = sort_alphabetically_str8.replace("}", '\n}')
 
     sort_alphabetically_str10 = sort_alphabetically_str9.lower()
-    print(sort_alphabetically_str10)
+    return sort_alphabetically_str10
 
 
-generate_diff()
+# вводим 2 файла
+print(diff_generate(open('json_files/file1_json.json'),
+                    open('json_files/file2_json.json')))
