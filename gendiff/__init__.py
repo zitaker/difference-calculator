@@ -1,2 +1,6 @@
-print('__init__generate_diff')
-# from generate_diff import diff_generate
+from .generate_diff import diff_generate
+
+
+__all__ = (
+    'diff_generate'
+)

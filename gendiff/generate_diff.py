@@ -69,6 +69,6 @@ def diff_generate(file1, file2):
     return sort_alphabetically_str10
 
 
-# вводим 2 файла
-print(diff_generate(open('json_files/file1_json.json'),
-                    open('json_files/file2_json.json')))
+# # вводим 2 файла
+# print(diff_generate(open('json_files/file1_json.json'),
+#                     open('json_files/file2_json.json')))

@@ -11,3 +11,4 @@ first_installation::
 #poetry run gendiff -h
 #gendiff file1.py file2.yml
 #poetry run gendiff file1.py file2.yml
+#gendiff filepath1.json filepath2.json
