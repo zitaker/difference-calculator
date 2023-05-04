@@ -7,6 +7,7 @@ def main():
     # parse_args()
     args = parse_args()
     diff = diff_generate(args.file1_json.json, args.file2_json.json)
+    # diff = diff_generate(args.file1, args.file2)
     print(diff)
 
 
