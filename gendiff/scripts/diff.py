@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 from gendiff.cli import parse_args
-from gendiff import generate_diff
+from gendiff.generate_diff import diff_generate
 
 
 def main():
-    parse_args()
-    diff = generate_diff(file_path1, file_path2)
+    # parse_args()
+    args = parse_args()
+    diff = diff_generate(args.file1_json.json, args.file2_json.json)
     print(diff)
-
 
 
 if __name__ == '__main__':
