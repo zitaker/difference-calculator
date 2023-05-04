@@ -1,5 +1,5 @@
 import json
-from scripts.constants import PLUS, MINUS, SPASE
+from gendiff.constants import PLUS, MINUS, SPASE
 
 
 def diff_generate(file1, file2):
@@ -48,8 +48,8 @@ def diff_generate(file1, file2):
     str_without_duplicates8 = str_without_duplicates7.replace('\\', '')
 
     # сортируем по алфавиту
-    list_in_alphabetical_order = str_without_duplicates8.split(',  ')
-    sort_alphabetically = sorted(list_in_alphabetical_order, key=lambda x: x[2:])
+    list_in_alphabe_order = str_without_duplicates8.split(',  ')
+    sort_alphabetically = sorted(list_in_alphabe_order, key=lambda x: x[2:])
 
     # исключаем лишние символы
     sort_alphabetically_str = str(sort_alphabetically)

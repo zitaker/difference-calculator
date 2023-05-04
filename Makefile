@@ -1,4 +1,4 @@
-first_installation::
+first_installation:
 		poetry install
 		poetry build
 		poetry publish --dry-run
@@ -13,3 +13,7 @@ first_installation::
 #poetry run gendiff file1.py file2.yml
 #gendiff filepath1.json filepath2.json
 #poetry run gendiff file1_json.json file2_json.json
+#gendiff file1_json.json file2_json.json
+
+
+#poetry run flake8 gendiff
