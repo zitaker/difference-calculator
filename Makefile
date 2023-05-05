@@ -3,6 +3,7 @@ first_installation:
 		poetry build
 		poetry publish --dry-run
 		python3 -m pip install --user dist/*.whl
+		#python3 -m pip install --force-reinstall dist/*.whl
 
 #poetry run gendiff
 #poetry run python -m gendiff.scripts.diff
