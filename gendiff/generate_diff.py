@@ -3,30 +3,17 @@ from gendiff.constants import PLUS, MINUS, SPASE
 
 
 def diff_generate(file1, file2):
-    qwerty1 = {}
-    qwerty2 = {}
-
-    dict1 = open('gendiff/json_files/file1_json.json')
-    dict2 = open('gendiff/json_files/file2_json.json')
-
-    obj1 = json.loads(dict1.read())
-    obj2 = json.loads(dict2.read())
-
-    # print(dict1)
-    qwerty1.update(obj1)
-    qwerty2.update(obj2)
-    # print(qwerty1)
-    # print(qwerty2)
+    # вводим 2 файла
+    file1 = open('gendiff/json_files/file1_json.json')
+    file2 = open('gendiff/json_files/file2_json.json')
 
     # определяем два файла для чтения человека
-    # obj1 = json.loads(file1.read())
-    # obj2 = json.loads(file2.read())
+    obj1 = json.loads(file1.read())
+    obj2 = json.loads(file2.read())
 
     # переводим файлы в списки
-    obj1_translate_in_list = list(qwerty1.items())
-    obj2_translate_in_list = list(qwerty2.items())
-    # obj1_translate_in_list = list(obj1.items())
-    # obj2_translate_in_list = list(obj2.items())
+    obj1_translate_in_list = list(obj1.items())
+    obj2_translate_in_list = list(obj2.items())
 
     # создаем единый список
     unified_obj_list = list()
@@ -89,4 +76,3 @@ def diff_generate(file1, file2):
 # # вводим 2 файла
 # print(diff_generate(open('json_files/file1_json.json'),
 #                     open('json_files/file2_json.json')))
-
