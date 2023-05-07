@@ -2,6 +2,9 @@ install:
 	poetry build
 	python3 -m pip install --force-reinstall dist/*.whl
 
+make lint:
+	poetry run flake8 gendiff
+
 #first_installation:
 #		poetry install
 #		poetry build
@@ -20,5 +23,3 @@ install:
 #poetry run gendiff file1_json.json file2_json.json
 #gendiff file1_json.json file2_json.json
 
-
-#poetry run flake8 gendiff

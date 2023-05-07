@@ -2,7 +2,7 @@ import json
 from gendiff.constants import PLUS, MINUS, SPASE
 
 
-def diff_generate(file1, file2):
+def diff_generate(file1, file2):  # noqa: C901
     # вводим 2 файла
     file1 = open('gendiff/json_files/file1_json.json')
     file2 = open('gendiff/json_files/file2_json.json')
