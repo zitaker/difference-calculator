@@ -82,19 +82,15 @@ from gendiff.constants import PLUS, MINUS, SPASE
 
 # file1 = open('tests/fixtures/file1.json')
 # file2 = open('tests/fixtures/file2.json')
-def is_dictionary():
-    # вводим 2 файла
-    file1 = open('gendiff/tests/fixtures/file1.json')
-    file2 = open('gendiff/tests/fixtures/file2.json')
-
-    # определяем два файла для чтения человека в словари
-    obj1 = json.loads(file1.read())
-    obj2 = json.loads(file2.read())
-    return obj1, obj2
+def read_json_file(file):
+    # определяем файл для чтения человека в словарь
+    obj = json.loads(file.read())
+    return obj
 
 
 def is_lists():
-    obj1, obj2 = is_dictionary()
+    obj1 = read_json_file(open('gendiff/tests/fixtures/file1.json'))
+    obj2 = read_json_file(open('gendiff/tests/fixtures/file2.json'))
     # переводим файлы в списки
     obj1_translate_in_list = list(obj1.items())
     obj2_translate_in_list = list(obj2.items())
@@ -136,7 +132,6 @@ def is_exclusion_of_duplicates():
     return list_without_duplicates
 
 
-# def is_diting():
 def diff_generate(file1, file2):
     list_without_duplicates = is_exclusion_of_duplicates()
     # исключаем лишние символы
