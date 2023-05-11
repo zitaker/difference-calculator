@@ -1,7 +1,8 @@
 from gendiff.generate_diff import read_json_file
 from gendiff.generate_diff import translate_to_lists
 from gendiff.generate_diff import translate_to_single_list
-from gendiff.generate_diff import exclusion_duplicates
+from gendiff.generate_diff import diff_generate
+
 
 
 def test_read_json_file():
@@ -21,5 +22,17 @@ def test_translate_to_lists():
 def test_translate_to_single_list():
     obj1 = None
     obj2 = None
-    expected_result = ([('host', 'hexlet.io'), ('timeout', 50), ('proxy', '123.234.53.22'), ('follow', False)], [('timeout', 20), ('verbose', True), ('host', 'hexlet.io')])
+    expected_result = ["   ('host', 'hexlet.io')", " - ('timeout', 50)", " - ('proxy', '123.234.53.22')",
+                       " - ('follow', False)", " + ('timeout', 20)", " + ('verbose', True)"]
     assert translate_to_single_list(obj1, obj2) == expected_result
+
+
+# def test_diff_generate():
+#     result = {
+#                - follow: false
+#                  host: hexlet.io
+#                - proxy: 123.234.53.22
+#                + timeout: 20
+#                - timeout: 50
+#                + verbose: true
+#              }
