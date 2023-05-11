@@ -102,8 +102,12 @@ def translate_to_lists(path1=obj1.items(), path2=obj2.items()):
 obj1_translate_in_list, obj2_translate_in_list = translate_to_lists()
 
 
-def translate_to_single_list(obj1_in_list=obj1_translate_in_list, obj2_in_list=obj2_translate_in_list):
+def translate_to_single_list(obj1_in_list=None, obj2_in_list=None):
     # создаем единый список
+    if obj2_in_list is None:
+        obj2_in_list = obj2_translate_in_list
+    if obj1_in_list is None:
+        obj1_in_list = obj1_translate_in_list
     unified_obj_list = list()
 
     for key in obj1_in_list:
@@ -119,7 +123,7 @@ def translate_to_single_list(obj1_in_list=obj1_translate_in_list, obj2_in_list=o
     return unified_obj_list
 
 
-def is_exclusion_of_duplicates():
+def exclusion_duplicates():
     unified_obj_list = translate_to_single_list()
 
     # редактируем список
@@ -136,7 +140,7 @@ def is_exclusion_of_duplicates():
 
 
 def diff_generate(file1, file2):
-    list_without_duplicates = is_exclusion_of_duplicates()
+    list_without_duplicates = exclusion_duplicates()
     # исключаем лишние символы
     str_without_duplicates = str(list_without_duplicates)
     str_without_duplicates1 = str_without_duplicates.replace("[", '')
