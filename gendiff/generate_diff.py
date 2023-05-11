@@ -82,42 +82,45 @@ from gendiff.constants import PLUS, MINUS, SPASE
 
 # file1 = open('tests/fixtures/file1.json')
 # file2 = open('tests/fixtures/file2.json')
-def read_json_file(file):
+def read_json_file(path):
     # определяем файл для чтения человека в словарь
-    obj = json.loads(file.read())
+    obj = json.loads(open(path).read())
     return obj
 
 
-def is_lists():
-    obj1 = read_json_file(open('gendiff/tests/fixtures/file1.json'))
-    obj2 = read_json_file(open('gendiff/tests/fixtures/file2.json'))
+obj1 = read_json_file('gendiff/tests/fixtures/file1.json')
+obj2 = read_json_file('gendiff/tests/fixtures/file2.json')
+
+
+def translate_to_lists(path1=obj1.items(), path2=obj2.items()):
     # переводим файлы в списки
-    obj1_translate_in_list = list(obj1.items())
-    obj2_translate_in_list = list(obj2.items())
+    obj1_translate_in_list = list(path1)
+    obj2_translate_in_list = list(path2)
     return obj1_translate_in_list, obj2_translate_in_list
 
 
-def is_single_list():
-    obj1_translate_in_list, obj2_translate_in_list = is_lists()
+obj1_translate_in_list, obj2_translate_in_list = translate_to_lists()
 
+
+def translate_to_single_list(obj1_in_list=obj1_translate_in_list, obj2_in_list=obj2_translate_in_list):
     # создаем единый список
     unified_obj_list = list()
 
-    for key in obj1_translate_in_list:
-        if key in obj2_translate_in_list:
+    for key in obj1_in_list:
+        if key in obj2_in_list:
             unified_obj_list.append(f"{SPASE}{key}")
-        elif key not in obj2_translate_in_list:
+        elif key not in obj2_in_list:
             unified_obj_list.append(f"{MINUS}{key}")
 
-    for key in obj2_translate_in_list:
-        if key not in obj1_translate_in_list:
+    for key in obj2_in_list:
+        if key not in obj1_in_list:
             unified_obj_list.append(f"{PLUS}{key}")
 
     return unified_obj_list
 
 
 def is_exclusion_of_duplicates():
-    unified_obj_list = is_single_list()
+    unified_obj_list = translate_to_single_list()
 
     # редактируем список
     unified_obj_list1 = str(unified_obj_list)
