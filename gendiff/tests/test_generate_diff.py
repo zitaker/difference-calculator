@@ -12,7 +12,7 @@ def test_read_json_file():
     assert read_json_file(path) == expected_result
 
 
-def test_translate_to_lists():
+def test_translate_to_lists():  # noqa: N400
     obj1 = [('host', 'hexlet.io'), ('timeout', 50), ('proxy', '123.234.53.22'),
             ('follow', False)]
 
@@ -40,6 +40,5 @@ def test_translate_to_single_list():
 def test_diff_generate():
     path1 = 'gendiff/tests/fixtures/file1.json'
     path2 = 'gendiff/tests/fixtures/file2.json'
-    test_file = open('gendiff/tests/fixtures/test_result.txt')
-    expected_result = test_file.read()
+    expected_result = open('gendiff/tests/fixtures/test_result.txt').read()
     assert diff_generate(path1, path2) == expected_result
