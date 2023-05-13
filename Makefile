@@ -22,4 +22,6 @@ make lint:
 #gendiff filepath1.json filepath2.json
 #poetry run gendiff file1.json file2.json
 #gendiff file1.json file2.json
+#poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json
+
 

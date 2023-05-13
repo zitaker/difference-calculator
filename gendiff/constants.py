@@ -1,3 +1,3 @@
-PLUS = " + "
-MINUS = " - "
-SPASE = "   "
+PLUS = "  + "
+MINUS = "  - "
+SPASE = "    "
