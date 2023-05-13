@@ -8,21 +8,21 @@ def read_json_file(path):
     return obj
 
 
-def create_diff_list(a_dict, b_dict):
+def create_diff_list(dict_1, dict_2):
     # создаем единый список
-    a_list = a_dict.items()
-    b_list = b_dict.items()
+    list_1 = dict_1.items()
+    list_2 = dict_2.items()
     diff_list = list()
 
-    for key, value in a_list:
-        if (key, value) in b_list:
-            diff_list.append(f"{SPASE}{key}: {value}".lower())
-        elif (key, value) not in b_list:
-            diff_list.append(f"{MINUS}{key}: {value}".lower())
+    for _, value in list_1:
+        if (_, value) in list_2:
+            diff_list.append(f"{SPASE}{_}: {value}".lower())
+        elif (_, value) not in list_2:
+            diff_list.append(f"{MINUS}{_}: {value}".lower())
 
-    for key, value in b_list:
-        if (key, value) not in a_list:
-            diff_list.append(f"{PLUS}{key}: {value}".lower())
+    for _, value in list_2:
+        if (_, value) not in list_1:
+            diff_list.append(f"{PLUS}{_}: {value}".lower())
 
     return diff_list
 
@@ -32,15 +32,15 @@ def create_diff_string(diff_list):
     sorted_diff_list = sorted(diff_list, key=lambda x: x[3:])
 
     diff = '{'
-    for item in sorted_diff_list:
-        diff = f"{diff}\n{item}"
+    for _ in sorted_diff_list:
+        diff = f"{diff}\n{_}"
 
     return diff + '\n}'
 
 
-def generate_diff(path1, path2):
-    obj1 = read_json_file(path1)
-    obj2 = read_json_file(path2)
+def generate_diff(path_1, path_2):
+    obj_1 = read_json_file(path_1)
+    obj_2 = read_json_file(path_2)
 
-    diff_list = create_diff_list(obj1, obj2)
+    diff_list = create_diff_list(obj_1, obj_2)
     return create_diff_string(diff_list)

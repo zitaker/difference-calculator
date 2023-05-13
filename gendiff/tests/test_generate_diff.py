@@ -33,18 +33,20 @@ def test_create_diff_list():
 
 
 def test_create_diff_string():
-    a = '  + a'
-    b = '  - b'
+    x_1 = '  + x_1'
+    x_2 = '  - x_2'
+    x_3 = '    x_3'
     diff_list = [
-        b,
-        a
+        x_1,
+        x_2,
+        x_3
     ]
-    expected_result = '{\n' + f'{a}\n{b}\n' + '}'
+    expected_result = '{\n' + f'{x_1}\n{x_2}\n{x_3}\n' + '}'
     assert create_diff_string(diff_list) == expected_result
 
 
 def test_generate_diff():
-    path1 = 'gendiff/tests/fixtures/file1.json'
-    path2 = 'gendiff/tests/fixtures/file2.json'
+    path_1 = 'gendiff/tests/fixtures/file1.json'
+    path_2 = 'gendiff/tests/fixtures/file2.json'
     expected_result = open('gendiff/tests/fixtures/test_result.txt').read()
-    assert generate_diff(path1, path2) == expected_result
+    assert generate_diff(path_1, path_2) == expected_result
