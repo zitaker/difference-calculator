@@ -4,6 +4,8 @@ install:
 
 make lint:
 	poetry run flake8 gendiff
+	poetry run pytest -vv
+
 
 #first_installation:
 #		poetry install
