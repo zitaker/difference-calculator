@@ -1,6 +1,7 @@
 install:
 	poetry build
 	poetry publish --dry-run
+	python3 -m pip install --user dist/*.whl
 pytest:
 	poetry run pytest -vv
 	
