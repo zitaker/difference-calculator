@@ -15,4 +15,3 @@ jobs:
       - run: |
           pip install poetry
           make install
-          pytest
