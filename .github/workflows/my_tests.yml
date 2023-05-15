@@ -15,4 +15,4 @@ jobs:
       - run: |
           ls -la
           pip install poetry
-          poetry run pytest -s
+          make insta
