@@ -1,5 +1,6 @@
 insta:
 	poetry install
+	poetry run pytest -s
 	
 install:
 	poetry build
