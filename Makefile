@@ -1,5 +1,5 @@
-insta:
-	poetry install
+poetry run pytest -vv:
+	poetry run pytest -vv
 
 #install:
 #	poetry build
