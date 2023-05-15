@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           pip install poetry
-          insta
+          make insta
