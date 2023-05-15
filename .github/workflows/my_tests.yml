@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          ls -la
           pip install poetry
-          make insta
+          poetry_install
+          poetry_run_pytest_vv
+          poetry_run_flake8_gendiff
+          
