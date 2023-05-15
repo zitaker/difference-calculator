@@ -1,19 +1,19 @@
 insta:
 	poetry install
 
-install:
-	poetry build
-	python3 -m pip install --force-reinstall dist/*.whl
+#install:
+#	poetry build
+#	python3 -m pip install --force-reinstall dist/*.whl
 
-poetry run pytest -vv:
-	poetry run pytest -vv
+#poetry run pytest -vv:
+#	poetry run pytest -vv
 
 #poetry-run-flake8-gendiff:
 #	poetry run flake8 gendiff
 
-make lint:
-	poetry run flake8 gendiff
-	poetry run pytest -vv
+#make lint:
+#	poetry run flake8 gendiff
+#	poetry run pytest -vv
 
 
 #first_installation:
