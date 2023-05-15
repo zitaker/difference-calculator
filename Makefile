@@ -2,10 +2,10 @@ install:
 	poetry build
 	python3 -m pip install --force-reinstall dist/*.whl
 	
-poetry run pytest -vv:
+pytest:
 	poetry run pytest -vv
 	
-poetry run flake8 gendiff:
+flake8:
 	poetry run flake8 gendiff
 
 #make lint:
