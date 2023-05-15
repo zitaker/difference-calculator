@@ -1,7 +1,7 @@
 install:
 	poetry build
 	python3 -m pip install --force-reinstall dist/*.whl
-	poetry run flake8
+	
 #pytest:
 #	poetry run pytest -vv
 	
