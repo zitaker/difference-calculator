@@ -5,8 +5,8 @@ install:
 poetry run pytest -vv:
 	poetry run pytest -vv
 
-#poetry-run-flake8-gendiff:
-#	poetry run flake8 gendiff
+poetry-run-flake8-gendiff:
+	poetry run flake8 gendiff
 
 #make lint:
 #	poetry run flake8 gendiff
