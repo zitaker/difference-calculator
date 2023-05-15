@@ -1,8 +1,7 @@
 install:
 	poetry build
 	python3 -m pip install --force-reinstall dist/*.whl
-	poetry run pytest -vv
-	
+	poetry run pytest -s
 pytest:
 	poetry run pytest -vv
 	
