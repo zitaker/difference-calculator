@@ -1,6 +1,7 @@
 insta:
 	poetry install
 	poetry run pytest -s
+	poetry run flake8 gendiff
 	
 install:
 	poetry build
