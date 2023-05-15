@@ -1,8 +1,6 @@
 install:
 	poetry build
-	poetry publish --dry-run
-	python3 -m pip install --user dist/*.whl
-	poetry run flake8 gendiff
+	python3 -m pip install --force-reinstall dist/*.whl
 pytest:
 	poetry run pytest -vv
 	
