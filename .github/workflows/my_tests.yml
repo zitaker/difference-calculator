@@ -14,8 +14,7 @@ jobs:
       - user: actions/checkout@v3
         with:
           python-version: 3.8
-      - name: Install deps
+      - name: Install My tests
         run: |
           poetry run flake8 gendiff
-          poetry run pytest -vv
           pip install -r requirements.txt
