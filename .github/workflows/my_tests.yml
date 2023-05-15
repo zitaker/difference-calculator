@@ -1,4 +1,4 @@
-name: My tests
+name: hexlet-check
 
 on:
   push:
@@ -11,10 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - user: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - name: Hexlet project check
+        uses: hexlet/project-action@release
         with:
-          python-version: 3.8
-      - name: Install My tests
-        run: |
-          poetry run flake8 gendiff
-          pip install -r requirements.txt
+          hexlet-id: ${{ secrets.HEXLET_ID }}
