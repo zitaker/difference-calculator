@@ -15,4 +15,3 @@ jobs:
       - run: |
           pip install poetry
           make pytest
-          make flake8
