@@ -1,11 +1,11 @@
-poetry-install:
+poetry install:
 	poetry install
 
 install:
 	poetry build
 	python3 -m pip install --force-reinstall dist/*.whl
 
-poetry-run-pytest-vv:
+poetry run pytest -vv:
 	poetry run pytest -vv
 
 #poetry-run-flake8-gendiff:
