@@ -15,3 +15,4 @@ jobs:
       - run: |
           ls -la
           pip install poetry
+          make lint
