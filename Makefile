@@ -1,4 +1,4 @@
-poetry install:
+insta:
 	poetry install
 
 install:
