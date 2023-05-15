@@ -15,4 +15,4 @@ jobs:
       - run: |
           ls -la
           pip install poetry
-          make lint
+          poetry run pytest -s
