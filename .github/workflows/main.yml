@@ -20,7 +20,7 @@ jobs:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
-         CC_TEST_REPORTER_ID: ${{474e6f9d0fe0a119f693f4e8c6822186294b5c12b5155aa67905e390de1dbea1}}
+         CC_TEST_REPORTER_ID: ${secrets.HEXLET_ID}}
          JACOCO_SOURCE_PATH: src/main/java
         with:
          coverageCommand: make report
