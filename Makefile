@@ -1,7 +1,9 @@
 install:
 	poetry build
 	python3 -m pip install --force-reinstall dist/*.whl
-	poetry run pytest --cov=gendiff --cov-report xml
+
+qwerty:
+	ls -a
 	
 pytest:
 	poetry run pytest -vv
