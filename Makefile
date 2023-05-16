@@ -2,7 +2,7 @@ install:
 	poetry build
 	python3 -m pip install --force-reinstall dist/*.whl
 
-qwerty:
+flake8:
 	pip install flake8
 	poetry run flake8 gendiff
 	
