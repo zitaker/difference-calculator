@@ -2,10 +2,8 @@ name: my_tests
 
 on:
   push:
-    branches:
-      - '**'
-    tags:
-      - '**'
+    branches: [ master ]
+    tags: [ master ]
 
 jobs:
   build:
