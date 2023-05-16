@@ -17,12 +17,11 @@ jobs:
           make install
           make flake8
           make pytest
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v3.2.0
+        if: github.ref_name == 'main'
         env:
-         CC_TEST_REPORTER_ID: ${secrets.CC_TEST_REPORTER_ID}}
-         JACOCO_SOURCE_PATH: src/main/java
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-         coverageCommand: make test-coverage
-         debug: true
-          # upload coverage to Code Climate
+          coverageCommand: make test-coverage
+          debug: true
