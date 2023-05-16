@@ -17,11 +17,5 @@ jobs:
           make install
           make flake8
           make pytest
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v3.2.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
-          # upload coverage to Code Climate
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
