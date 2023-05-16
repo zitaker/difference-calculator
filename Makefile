@@ -16,6 +16,9 @@ test-coverage:
 coverage-missing:
 	poetry run pytest --cov-report term-missing --cov=gendiff
 	
+coverage:
+	poetry add pytest-cov
+	
 #flake8:
 #	poetry run flake8 gendiff
 
