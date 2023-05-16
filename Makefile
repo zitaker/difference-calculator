@@ -3,7 +3,7 @@ install:
 	python3 -m pip install --force-reinstall dist/*.whl
 
 qwerty:
-	ls -a
+	pip install flake8
 	
 pytest:
 	poetry run pytest -vv
