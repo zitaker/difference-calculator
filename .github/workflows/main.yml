@@ -20,7 +20,7 @@ jobs:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.34c33637-36b8-49e7-a682-01a53ea2c181 }}
         with:
           coverageCommand: make test-coverage
           debug: true
