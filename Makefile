@@ -9,6 +9,9 @@ flake8:
 pytest:
 	pip install pytest
 	poetry run pytest -vv
+
+test-coverage:
+	poetry run pytest --cov=gendiff
 	
 #flake8:
 #	poetry run flake8 gendiff
