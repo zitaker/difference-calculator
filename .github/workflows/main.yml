@@ -17,8 +17,8 @@ jobs:
           make install
           make flake8
           make pytest
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
         env:
          CC_TEST_REPORTER_ID: ${{secrets.bbadf3a9bab4663f37bf2c66ccb99e824ed91a4e0e24f3b42b37f698bfd8fa69}}
          JACOCO_SOURCE_PATH: src/main/java
