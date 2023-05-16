@@ -11,7 +11,10 @@ pytest:
 	poetry run pytest -vv
 
 test-coverage:
-	poetry add pytest-cov
+	poetry run pytest --cov=gendiff --cov-report xml
+
+coverage-missing:
+	poetry run pytest --cov-report term-missing --cov=gendiff
 	
 #flake8:
 #	poetry run flake8 gendiff
