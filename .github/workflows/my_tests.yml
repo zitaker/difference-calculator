@@ -16,3 +16,4 @@ jobs:
           pip install poetry
           make install
           make flake8
+          make pytest
