@@ -11,7 +11,7 @@ pytest:
 	poetry run pytest -vv
 
 test-coverage:
-	poetry run pytest --cov=gendiff
+	poetry add pytest-cov
 	
 #flake8:
 #	poetry run flake8 gendiff
