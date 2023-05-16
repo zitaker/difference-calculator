@@ -7,7 +7,8 @@ flake8:
 	poetry run flake8 gendiff
 	
 pytest:
-	poetry run pytest -vv
+	pip install pytest
+	#poetry run pytest -vv
 	
 #flake8:
 #	poetry run flake8 gendiff
