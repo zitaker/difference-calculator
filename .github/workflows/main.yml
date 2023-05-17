@@ -25,7 +25,6 @@ jobs:
           ./test-coverage-tool before-build
       - name: test
         run: |
-          make test-coverage
           make coverage-missing
 
       - name: Test & publish code coverage
