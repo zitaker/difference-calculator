@@ -27,7 +27,7 @@ jobs:
         uses: codecov/codecov-action@v3
         if: github.ref_name == 'main'
         env:
-          GITHUB_TOKEN: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: make test-coverage
+          coverageCommand: ./test-coverage-tool after-build -r "CC_TEST_REPORTER_ID"
           debug: true
