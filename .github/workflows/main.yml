@@ -29,5 +29,5 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: ./test-coverage-tool after-build -r "CC_TEST_REPORTER_ID"
+          run: ./test-coverage-tool after-build -r "CC_TEST_REPORTER_ID"
           debug: true
