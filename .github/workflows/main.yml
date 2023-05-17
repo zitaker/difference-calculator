@@ -18,7 +18,7 @@ jobs:
           make flake8
           make pytest
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v3
+        uses: codecov/codecov-action@v3
         if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
