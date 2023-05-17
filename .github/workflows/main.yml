@@ -28,6 +28,4 @@ jobs:
         if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
           run: ./test-coverage-tool after-build -r "CC_TEST_REPORTER_ID"
-          debug: true
