@@ -17,8 +17,6 @@ jobs:
           make install
           make flake8
           make pytest
-      - name: seting reporter
-      - run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./test-coverage-tool
           chmod +x ./test-coverage-tool
           ./test-coverage-tool before-build
