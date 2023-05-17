@@ -17,7 +17,7 @@ jobs:
           make install
           make flake8
           make pytest
-      - name: Upload coverage reports to Codecov
+      - name: Test & publish code coverage
         uses: codecov/codecov-action@v3
         if: github.ref_name == 'main'
         env:
