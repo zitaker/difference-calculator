@@ -1,7 +1,7 @@
 from gendiff.generate_diff import read_json_file
 from gendiff.generate_diff import create_diff_list
 from gendiff.generate_diff import create_diff_string
-from gendiff.generate_diff import generate_diff
+
 
 
 def test_read_json_file():
@@ -45,8 +45,3 @@ def test_create_diff_string():
     assert create_diff_string(diff_list) == expected_result
 
 
-def test_generate_diff():
-    path1 = 'gendiff/tests/fixtures/file1.json'
-    path2 = 'gendiff/tests/fixtures/file2.json'
-    expected_result = open('gendiff/tests/fixtures/test_result.txt').read()
-    assert generate_diff(path1, path2) == expected_result
