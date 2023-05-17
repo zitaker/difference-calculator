@@ -18,11 +18,16 @@ jobs:
           make flake8
           make pytest
     
-      - name: test
+      - name: create reporter
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./test-coverage-tool
           chmod +x ./test-coverage-tool
           ./test-coverage-tool before-build
+      - name: test
+        run: |
+          make pytest
+          make test-coverage
+          make coverage-missing
 
       - name: Test & publish code coverage
         uses: codecov/codecov-action@v3
