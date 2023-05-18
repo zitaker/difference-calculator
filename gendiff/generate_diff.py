@@ -5,10 +5,10 @@ import yaml
 
 
 def compare_files(path):
-    path_obj = open(path)
-    # obj = yaml.load(path_obj, Loader=SafeLoader)
-    obj = yaml.load(path_obj, Loader=yaml.FullLoader)
+    obj = yaml.load(open(path), Loader=yaml.FullLoader)
     return obj
+
+# print(compare_files('tests/fixtures/file1.yaml'))
 
 
 # def read_json_file(path):
@@ -16,6 +16,7 @@ def compare_files(path):
 #     obj = json.loads(open(path).read())
 #     return obj
 
+# print(read_json_file('tests/fixtures/file1.json'))
 
 # def create_diff_list(dict_1, dict_2):
 #     # создаем единый список
@@ -53,7 +54,8 @@ def generate_diff(path_1, path_2):
     return obj_1, obj_2
 
     # obj_1 = read_json_file(path_1)
-    # obj_2 = read_json_file(path_2)
+    # # obj_2 = read_json_file(path_2)
+    # return obj_1
 
     # diff_list = create_diff_list(obj_1, obj_2)
     # return create_diff_string(diff_list)

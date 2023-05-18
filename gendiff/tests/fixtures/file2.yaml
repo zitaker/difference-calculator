@@ -8,4 +8,3 @@
 - &myAlias3
   keys: "host"
   values: "hexlet.io"
-...

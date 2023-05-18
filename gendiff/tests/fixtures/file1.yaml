@@ -11,4 +11,3 @@
 - &myAlias4
   keys: "follow"
   values: false
-...
