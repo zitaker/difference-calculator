@@ -1,0 +1,14 @@
+---
+- &myAlias1
+  keys: "host"
+  values: "hexlet.io"
+- &myAlias2
+  keys: "timeout"
+  values: 50
+- &myAlias3
+  keys: "proxy"
+  values: "123.234.53.22"
+- &myAlias4
+  keys: "follow"
+  values: false
+...

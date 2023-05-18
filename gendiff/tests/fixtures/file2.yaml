@@ -1,0 +1,11 @@
+---
+- &myAlias1
+  keys: "timeout"
+  values: 20
+- &myAlias2
+  keys: "verbose"
+  values: true
+- &myAlias3
+  keys: "host"
+  values: "hexlet.io"
+...

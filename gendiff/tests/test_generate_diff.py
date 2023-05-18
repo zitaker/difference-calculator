@@ -2,6 +2,24 @@ from gendiff.generate_diff import read_json_file
 from gendiff.generate_diff import create_diff_list
 from gendiff.generate_diff import create_diff_string
 from gendiff.generate_diff import generate_diff
+from gendiff.generate_diff import compare_files
+
+
+def test_compare_files():
+    # path = 'gendiff/tests/fixtures/file1.yaml'
+    path = 'gendiff/tests/fixtures/file1.json'
+    if path.endswith('.yaml'):
+        return path.endswith('.yaml')
+    elif path.endswith('.json'):
+        return path.endswith('.json')
+    expected_result = {
+        'follow': False,
+        'host': 'hexlet.io',
+        'proxy': '123.234.53.22',
+        'timeout': 50,
+    }
+
+    assert compare_files(path) == expected_result
 
 
 def test_read_json_file():
