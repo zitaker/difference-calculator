@@ -1,14 +1,5 @@
-import json
-import yaml
 from gendiff.constants import PLUS, MINUS, SPASE
-
-
-def file_parsing(path):
-    open_path = open(path)
-    if path.endswith('.yaml') or path.endswith('.yml'):
-        return yaml.load(open_path, Loader=yaml.FullLoader)
-    elif path.endswith('.json'):
-        return json.loads(open_path.read())
+from gendiff.parser import file_parser
 
 
 def create_diff_list(dict_1, dict_2):
@@ -42,8 +33,8 @@ def create_diff_string(diff_list):
 
 
 def generate_diff(path_1, path_2):
-    obj_1 = file_parsing(path_1)
-    obj_2 = file_parsing(path_2)
+    obj_1 = file_parser(path_1)
+    obj_2 = file_parser(path_2)
 
     diff_list = create_diff_list(obj_1, obj_2)
     return create_diff_string(diff_list)

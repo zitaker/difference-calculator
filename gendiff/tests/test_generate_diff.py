@@ -1,10 +1,10 @@
 from gendiff.generate_diff import create_diff_list
 from gendiff.generate_diff import create_diff_string
 from gendiff.generate_diff import generate_diff
-from gendiff.generate_diff import file_parsing
+from gendiff.generate_diff import file_parser
 
 
-def test_file_parsing():
+def test_file_parser():
     path = 'gendiff/tests/fixtures/file1.json'
     expected_result = {
         'follow': False,
@@ -13,12 +13,12 @@ def test_file_parsing():
         'timeout': 50,
     }
     if path.endswith('.json'):
-        assert file_parsing(path) == expected_result
+        assert file_parser(path) == expected_result
 
 
 def test_create_diff_list():
-    obj1 = file_parsing('gendiff/tests/fixtures/file1.json')
-    obj2 = file_parsing('gendiff/tests/fixtures/file2.json')
+    obj1 = file_parser('gendiff/tests/fixtures/file1.json')
+    obj2 = file_parser('gendiff/tests/fixtures/file2.json')
 
     expected_result = [
         '    host: hexlet.io',
