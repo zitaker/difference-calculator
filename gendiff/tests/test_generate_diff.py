@@ -1,28 +1,10 @@
-from gendiff.generate_diff import read_json_file
 from gendiff.generate_diff import create_diff_list
 from gendiff.generate_diff import create_diff_string
 from gendiff.generate_diff import generate_diff
-from gendiff.generate_diff import compare_files
+from gendiff.generate_diff import file_parsing
 
 
-def test_compare_files():
-    # path = 'gendiff/tests/fixtures/file1.yaml'
-    path = 'gendiff/tests/fixtures/file1.json'
-    if path.endswith('.yaml'):
-        return path.endswith('.yaml')
-    elif path.endswith('.json'):
-        return path.endswith('.json')
-    expected_result = {
-        'follow': False,
-        'host': 'hexlet.io',
-        'proxy': '123.234.53.22',
-        'timeout': 50,
-    }
-
-    assert compare_files(path) == expected_result
-
-
-def test_read_json_file():
+def test_file_parsing():
     path = 'gendiff/tests/fixtures/file1.json'
     expected_result = {
         'follow': False,
@@ -30,13 +12,13 @@ def test_read_json_file():
         'proxy': '123.234.53.22',
         'timeout': 50,
     }
-
-    assert read_json_file(path) == expected_result
+    if path.endswith('.json'):
+        assert file_parsing(path) == expected_result
 
 
 def test_create_diff_list():
-    obj1 = read_json_file('gendiff/tests/fixtures/file1.json')
-    obj2 = read_json_file('gendiff/tests/fixtures/file2.json')
+    obj1 = file_parsing('gendiff/tests/fixtures/file1.json')
+    obj2 = file_parsing('gendiff/tests/fixtures/file2.json')
 
     expected_result = [
         '    host: hexlet.io',

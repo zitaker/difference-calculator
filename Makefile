@@ -46,6 +46,7 @@ coverage:
 #gendiff file1.json file2.json
 #poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json
 #poetry run gendiff gendiff/tests/fixtures/file1.yaml gendiff/tests/fixtures/file2.yaml
+#poetry run gendiff gendiff/tests/fixtures/file1.yml gendiff/tests/fixtures/file2.yml
 
 
 
