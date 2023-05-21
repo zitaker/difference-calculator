@@ -41,13 +41,13 @@ coverage:
 #poetry run gendiff -h
 #gendiff file1.py file2.yaml
 #poetry run gendiff file1.py file2.yaml
-#gendiff filepath1.json filepath2.json
+#gendiff filepath1.yaml filepath2.yaml
 #poetry run gendiff file1.json file2.json
 #gendiff file1.json file2.json
 #poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json
 #poetry run gendiff gendiff/tests/fixtures/file1.yaml gendiff/tests/fixtures/file2.yaml
 #poetry run gendiff gendiff/tests/fixtures/file1.yml gendiff/tests/fixtures/file2.yml
-
+#poetry run gendiff gendiff/tests/fixtures/filepath1.yaml gendiff/tests/fixtures/filepath2.yaml
 
 
 
