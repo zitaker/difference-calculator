@@ -1,4 +1,4 @@
-from gendiff.generate_diff import create_diff_list
+from gendiff.generate_diff import create_diff_dict
 from gendiff.generate_diff import create_diff_string
 from gendiff.generate_diff import generate_diff
 from gendiff.generate_diff import file_parser
@@ -16,7 +16,7 @@ def test_create_diff_list():
         '  + timeout: 20',
         '  + verbose: true',
     ]
-    actual_result = create_diff_list(obj1, obj2)
+    actual_result = create_diff_dict(obj1, obj2)
     assert actual_result == expected_result
 
 
