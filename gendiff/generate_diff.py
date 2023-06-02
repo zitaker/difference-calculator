@@ -3,21 +3,37 @@ from gendiff.parser import file_parser
 
 
 def create_diff_dict(dict_1, dict_2):
-    list_1 = dict_1.items()
-    list_2 = dict_2.items()
-
     diff_dict = dict()
 
-    for key, value in list_1:
-        if (key, value) in list_2:
-            diff_dict[f"{SPASE}{key}"] = value
+    for key, value in dict_1.items():
+        if isinstance(value, str):
+            if (key, value) in dict_2.items():
+                diff_dict[f"{' = '}{key}"] = value
 
-        elif (key, value) not in list_2:
-            diff_dict[f"{MINUS}{key}"] = value
+    for key, value in dict_1.items():
+        if isinstance(value, str):
+            if key not in dict_2.keys():
+                diff_dict[f"{MINUS}{key}"] = value
 
-    for key, value in list_2:
-        if (key, value) not in list_1:
-            diff_dict[f"{PLUS}{key}"] = value
+    for key, value in dict_2.items():
+        if isinstance(value, str):
+            if (key, value) not in dict_1.items():
+                diff_dict[f"{PLUS}{key}"] = value
+
+    for key, value in dict_1.items():
+        if isinstance(value, dict):
+            if key not in dict_2.keys():
+                diff_dict[f"{MINUS}{key}"] = value
+
+    for key, value in dict_2.items():
+        if isinstance(value, dict):
+            if key not in dict_1.keys():
+                diff_dict[f"{PLUS}{key}"] = value
+
+    for key, value in dict_1.items():
+        if isinstance(value, dict):
+            if key in dict_2.keys():
+                diff_dict[f"{' ~ '}{key}"] = create_diff_dict(value, value)
 
     return diff_dict
 
