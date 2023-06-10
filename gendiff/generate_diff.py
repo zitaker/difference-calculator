@@ -3,7 +3,6 @@ from gendiff.parser import file_parser
 
 
 def create_diff_list(dict_1, dict_2):
-    # создаем единый список
     list_1 = dict_1.items()
     list_2 = dict_2.items()
     diff_list = list()
@@ -22,7 +21,6 @@ def create_diff_list(dict_1, dict_2):
 
 
 def create_diff_string(diff_list):
-    # сортируем по алфавиту
     sorted_diff_list = sorted(diff_list, key=lambda x: x[3:])
 
     diff = '{'

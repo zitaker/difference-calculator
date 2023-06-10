@@ -1,56 +1,118 @@
-# from gendiff.constants import PLUS, MINUS, SPASE
-# from gendiff.constants import REMOVED, ADDED, UNCHANGED, NESTED, CHANGED
+import json
 from gendiff.parser import file_parser
+from gendiff.constants import REMOVED, ADDED, UNCHANGED, NESTED, CHANGED
+from gendiff.constants import SPACE_1, SPACE_2, SPASE
 
 
-def transformation_diff(dict_1, dict_2):
+def create_diff_get(path_1, path_2):
     result = dict()
-    obj_str = sorted(dict_1.keys() | dict_2.keys())
+    all_keys = sorted(path_1.keys() | path_2.keys())
 
-    for key in obj_str:
-        if key not in dict_2:
-            result[f"{' - '}{key}"] = dict_1[key]
+    for key in all_keys:
+        if key not in path_2:
+            result[key] = {
+                'type': REMOVED,
+                'value': path_1[key],
+                'children': None
+            }
 
-        elif key not in dict_1:
-            result[f"{' + '}{key}"] = dict_2[key]
+        elif key not in path_1:
+            result[key] = {
+                'type': ADDED,
+                'value': path_2[key],
+                'children': None
+            }
 
-        elif dict_1[key] == dict_2[key]:
-            result[f"{'   '}{key}"] = dict_1[key]
+        elif path_1[key] == path_2[key]:
+            result[key] = {
+                'type': UNCHANGED,
+                'value': path_1[key],
+                'children': None
+            }
 
-        elif isinstance(dict_1[key], dict) and isinstance(dict_2[key], dict):
-            result[f"{'   '}{key}"] = transformation_diff(dict_1[key], dict_2[key])
+        elif isinstance(path_1[key], dict) and isinstance(path_2[key], dict):
+            result[key] = {
+                'type': NESTED,
+                'value': None,
+                'children': create_diff_get(path_1[key], path_2[key])
+            }
 
         else:
-            result[f"{' - '}{key}"] = dict_1[key]
-            result[f"{' + '}{key}"] = dict_2[key]
+            result[key] = {
+                'type': CHANGED,
+                'value': {
+                    'old_value': path_1[key],
+                    'new_value': path_2[key]
+                },
+                'children': None
+            }
 
     return result
 
 
-def stringify(obj, level=0):
-    spaces_count = 2
-    space = " "
+symbols_dict = {UNCHANGED: SPACE,
+                ADDED: f"{SPACE_2}+{SPACE_1}",
+                REMOVED: f"{SPACE_2}-{SPACE_1}"}
 
-    if isinstance(obj, dict):
-        result = "{\n"
-        spaces = space * spaces_count * level
 
-        for key, value in obj.items():
-            string_value = stringify(value, level + 2)
-            result += f"{spaces} {key}: {string_value}\n"
+def str_template(spaces, symbol, key, value):
+    return f'{spaces}{symbol}{key}: {value}'
 
-        result += f"{spaces}{'}'}"
+
+def stringify(obj_dict, level):
+    if isinstance(obj_dict, str):
+        return obj_dict
+    if isinstance(obj_dict, dict):
+        result = ["{"]
+        spaces = SPACE * level
+
+        for key, value in obj_dict.items():
+            string_value = stringify(value, level + 1)
+            result.append(f"{spaces}{key}: {string_value}")
+        result.append(f"{SPACE * (level - 1)}{'}'}")
+        result = '\n'.join(result)
+        return result
     else:
-        result = str(obj)
+        return json.dumps(obj_dict)
 
+
+def create_stylish(obj_dict, level=0):
+    result = ['{']
+    level += 1
+    for k, v in obj_dict.items():
+        spaces = SPACE * (level - 1)
+        types = v.get('type')
+        value = v.get('value')
+        children = v.get('children')
+
+        if types == UNCHANGED or types == ADDED or types == REMOVED:
+            result.append(
+                str_template(
+                    spaces, symbols_dict[types], k, stringify(
+                        value, level + 1)))
+
+        elif types == CHANGED:
+            result.append(
+                str_template(
+                    spaces, symbols_dict[REMOVED], k, stringify(
+                        value.get('old_type'), level + 1)))
+
+            result.append(
+                str_template(
+                    spaces, symbols_dict[ADDED], k, stringify(
+                        value.get('new_type'), level + 1)))
+
+        else:
+            result.append(
+                str_template(
+                    spaces, symbols_dict[UNCHANGED], k, create_stylish(
+                        children, level)))
+
+    result.append(spaces + '}')
+    result = '\n'.join(result)
     return result
 
 
-def generate_diff(path_1, path_2):
-    dict_1 = file_parser(path_1)
-    dict_2 = file_parser(path_2)
-
-    # diff_get = create_diff_get(dict_1, dict_2)
-    diff_get = transformation_diff(dict_1, dict_2)
-
-    return stringify(diff_get)
+def stylish_diff(path_1, path_2):
+    obj_dict = create_diff_get(path_1, path_2)
+    return create_stylish(obj_dict)
