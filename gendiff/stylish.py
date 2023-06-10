@@ -114,5 +114,8 @@ def create_stylish(obj_dict, level=0):
 
 
 def stylish_diff(path_1, path_2):
-    obj_dict = create_diff_get(path_1, path_2)
+    obj_1 = file_parser(path_1)
+    obj_2 = file_parser(path_2)
+
+    obj_dict = create_diff_get(obj_1, obj_2)
     return create_stylish(obj_dict)
