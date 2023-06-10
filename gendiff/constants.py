@@ -1,7 +1,6 @@
 PLUS = "  + "
 MINUS = "  - "
-SPASE = "    "
-# SPASE написан не правильно - переменовать в файлах его потом
+SPACE_4 = "    "
 
 REMOVED = 'removed'
 ADDED = 'added'
@@ -11,4 +10,3 @@ CHANGED = 'changed'
 
 SPACE_1 = ' '
 SPACE_2 = SPACE_1 * 2
-SPACE = SPACE_1 * 4
