@@ -1,7 +1,7 @@
 import json
 from gendiff.parser import file_parser
 from gendiff.constants import REMOVED, ADDED, UNCHANGED, NESTED, CHANGED
-from gendiff.constants import SPACE_1, SPACE_2, SPASE
+from gendiff.constants import SPACE_1, SPACE_2, SPACE
 
 
 def create_diff_get(path_1, path_2):
