@@ -1,4 +1,3 @@
-import json
 from gendiff.parser import file_parser
 from gendiff.formaters.stylish import create_diff_get, create_stylish
 from gendiff.formaters.plain import create_diff_list, create_diff_string

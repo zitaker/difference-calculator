@@ -94,12 +94,12 @@ def create_stylish(obj_dict, level=0):
             result.append(
                 str_template(
                     spaces, symbols_dict[REMOVED], k, stringify(
-                        value.get('old_type'), level + 1)))
+                        value.get('old_value'), level + 1)))
 
             result.append(
                 str_template(
                     spaces, symbols_dict[ADDED], k, stringify(
-                        value.get('new_type'), level + 1)))
+                        value.get('new_value'), level + 1)))
 
         else:
             result.append(
