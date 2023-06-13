@@ -91,11 +91,12 @@ def test_str_template():
         "host: {'type': 'unchanged', 'value': 'hexlet.io', 'children': None}",
 
         "{'unchanged': '    ', 'added': '  + ', 'removed': '  - '}"
-        "proxy: {'type': 'removed', 'value': '123.234.53.22', 'children': None}",
+        "proxy: {'type': 'removed', 'value': '123.234.53.22', "
+        "'children': None}",
 
         "{'unchanged': '    ', 'added': '  + ', 'removed': '  - '}"
-        "timeout: {'type': 'changed', 'value': {'old_value': 50, 'new_value': 20}, "
-        "'children': None}",
+        "timeout: {'type': 'changed', 'value': {'old_value': 50, "
+        "'new_value': 20}, " "'children': None}",
 
         "{'unchanged': '    ', 'added': '  + ', 'removed': '  - '}"
         "verbose: {'type': 'added', 'value': True, 'children': None}"
@@ -178,8 +179,3 @@ def test_create_stylish():
     path = open('gendiff/tests/fixtures/test_result_stylish.txt')
     expected_result = path.read()
     assert create_stylish(obj) == expected_result
-
-
-
-
-
