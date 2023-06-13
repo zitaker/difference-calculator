@@ -10,3 +10,4 @@ CHANGED = 'changed'
 
 SPACE_1 = ' '
 SPACE_2 = SPACE_1 * 2
+
