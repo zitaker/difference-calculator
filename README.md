@@ -8,4 +8,4 @@
 https://asciinema.org/a/MVvNgzJZF5UMZJ0opqLVqdc1a  
 
 Recursive comparison  
-https://asciinema.org/a/VOTMCMPCap4sceYXeO7BOrjN1   
+https://asciinema.org/a/aU70glJGeG9IGREtMLWCHdkkq
