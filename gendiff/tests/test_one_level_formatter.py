@@ -5,8 +5,11 @@ def test_create_diff_string():
     obj_dict = {
         'follow': {'type': 'removed', 'value': False, 'children': None},
         'host': {'type': 'unchanged', 'value': 'hexlet.io', 'children': None},
-        'proxy': {'type': 'removed', 'value': '123.234.53.22', 'children': None},
-        'timeout': {'type': 'changed', 'value': {'old_value': 50, 'new_value': 20}, 'children': None},
+        'proxy': {'type': 'removed', 'value': '123.234.53.22',
+                  'children': None},
+        'timeout': {'type': 'changed',
+                    'value': {'old_value': 50, 'new_value': 20},
+                    'children': None},
         'verbose': {'type': 'added', 'value': True, 'children': None}
     }
 

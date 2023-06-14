@@ -64,4 +64,3 @@ def test_str_template():
     for key, value in obj.items():
         actual_result.append(str_template(spaces, symbols_dict, key, value))
     assert actual_result == expected_result
-
