@@ -1,4 +1,4 @@
-from gendiff.formaters.plain import create_diff_string
+from gendiff.formaters.one_level_formatter import create_diff_string
 
 
 def test_create_diff_string():
