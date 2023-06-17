@@ -52,5 +52,7 @@ coverage:
 
 #poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json --format one_level_formatter
 #poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json --format stylish
+#poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json --format plain
+
 #poetry run gendiff gendiff/tests/fixtures/filepath1.yaml gendiff/tests/fixtures/filepath2.yaml --format plain
 
