@@ -12,23 +12,30 @@ NESTED = 'nested'
 CHANGED = 'changed'
 
 PROPERTY = 'Property'
+PRINT = '.'
 
 symbols_dict = {
                 ADDED: f"{'was added with value'}: {'[complex value]'}",
                 REMOVED: f"{'was removed'}",
                 CHANGED: f"{'was updated. From'}",
-                UNCHANGED: f"{'was added with value'}:"
+                UNCHANGED: f"{''}:"
                 }
 
+# symbols_dict_2 = {
+#                 ADDED: f"{'was added with value'}: {'VALUE'}",
+#                 REMOVED: f"{'was removed'}",
+#                 CHANGED: f"{'was updated. From'}",
+#                 UNCHANGED: f"{'was added with value'}:"
+#                 }
 
-def plain(obj_dict):
+
+def one_plain(obj_dict):
     result = []
     for k, v in obj_dict.items():
         types = v.get('type')
         value = v.get('value')
-        children = v.get('children')
 
-        if types == UNCHANGED or types == ADDED or types == REMOVED:
+        if types == ADDED or types == REMOVED:
             result.append(
                 plain_template(PROPERTY, k, symbols_dict[types]))
 
@@ -39,14 +46,46 @@ def plain(obj_dict):
                                  f"'{value.get('old_value')}' "
                                  f"{'to'} '{value.get('new_value')}'"))
 
-        else:
+    result = '\n'.join(result)
+    return result
+
+
+def two_plan(obj_dict):
+    result = []
+    for k, v in obj_dict.items():
+        types = v.get('type')
+        value = v.get('value')
+        children = v.get('children')
+
+        if types == UNCHANGED or types == ADDED or types == REMOVED:
             result.append(
-                # plain_template(PROPERTY, k, f"{symbols_dict[UNCHANGED]} {plain(children)}")
-                plain_template(PROPERTY, k, f"{symbols_dict[UNCHANGED]} {plain(children)}")
+                plain_template(PROPERTY, k, symbols_dict_2[types]))
+
+        # elif types == CHANGED:
+        #     result.append(
+        #         plain_template(
+        #             PROPERTY, k, f"{symbols_dict_2[CHANGED]} "
+        #                          f"'{value.get('old_value')}' "
+        #                          f"{'to'} '{value.get('new_value')}'"))
+
+        # else:
+        #     result.append(
+        #         plain_template_2(PRINT, k, f"{symbols_dict_2[UNCHANGED]} {two_plan(children)}"))
+
+        elif types == UNCHANGED:
+            result.append(
+                plain_template_2(PRINT, k, f"{symbols_dict_2[UNCHANGED]} {two_plan(value)}")
             )
+
 
     result = '\n'.join(result)
     return result
+
+def plain(obj_dict):
+    result = two_plan(obj_dict)
+    return result
+
+
 
 
 # obj_dict = {
