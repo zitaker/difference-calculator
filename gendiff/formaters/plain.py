@@ -1,6 +1,9 @@
 def plain_template(PROPERTY, key, symbol):
     return f'{PROPERTY} {key} {symbol}'
 
+def plain_template_2(PRINT, key, symbol):
+    return f'{PRINT} {key} {symbol}'
+
 
 REMOVED = 'removed'
 ADDED = 'added'
@@ -14,7 +17,7 @@ symbols_dict = {
                 ADDED: f"{'was added with value'}: {'[complex value]'}",
                 REMOVED: f"{'was removed'}",
                 CHANGED: f"{'was updated. From'}",
-                UNCHANGED: ""
+                UNCHANGED: f"{'was added with value'}:"
                 }
 
 
@@ -38,6 +41,7 @@ def plain(obj_dict):
 
         else:
             result.append(
+                # plain_template(PROPERTY, k, f"{symbols_dict[UNCHANGED]} {plain(children)}")
                 plain_template(PROPERTY, k, f"{symbols_dict[UNCHANGED]} {plain(children)}")
             )
 
