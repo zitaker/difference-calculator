@@ -9,4 +9,7 @@ Help output, arguments and options, comparison of flat files (JSON, YAML, YML)
 https://asciinema.org/a/s3WuzPY9Y46FjgIBHATHaVddK  
 
 Recursive comparison  
-https://asciinema.org/a/aU70glJGeG9IGREtMLWCHdkkq
+https://asciinema.org/a/aU70glJGeG9IGREtMLWCHdkkq  
+
+Plain format  
+https://asciinema.org/a/CvRgWFtMMFstS3YSFgjs5kw3e

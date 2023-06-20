@@ -1,43 +1,27 @@
+import json
 from gendiff.formaters.plain import plain
-# from gendiff.formaters.plain import make_str
-#
-#
-# def test_make_str():
-#     obj_dict = {
-#         'follow': {
-#             'type': 'removed',
-#             'value': False,
-#             'children': None
-#         },
-#         'host': {
-#             'type': 'unchanged',
-#             'value': 'hexlet.io',
-#             'children': None
-#         },
-#         'proxy': {
-#             'type': 'removed',
-#             'value': '123.234.53.22',
-#             'children': None
-#         },
-#         'timeout': {
-#             'type': 'changed',
-#             'value': {
-#                 'old_value': 50,
-#                 'new_value': 20
-#             }, 'children': None
-#         }, 'verbose': {
-#             'type': 'added',
-#             'value': True,
-#             'children': None
-#         }
-#     }
-#
-#     if isinstance(obj_dict, str):
-#         return f"'{obj_dict}'"
-#         assert
-#     else:
-#         return json.dumps(element)
+from gendiff.formaters.plain import make_str
 
+
+def test_make_str():
+    obj_dict = {
+        'follow': {
+            'type': 'removed',
+            'value': False,
+            'children': None
+        }
+    }
+
+    expected_result = obj_dict
+
+    path = open('gendiff/tests/fixtures/test_plain_make_str.txt')
+    expected_result_dumps = path.read()
+
+    if isinstance(obj_dict, str):
+        assert make_str(obj_dict) == expected_result
+    else:
+        obj_json_dumps = json.dumps(obj_dict)
+        assert make_str(obj_json_dumps) == expected_result_dumps
 
 
 def test_plain():
@@ -165,7 +149,6 @@ def test_plain():
             'children': None
         }
     }
-
 
     path = open('gendiff/tests/fixtures/test_result_plain.txt')
     expected_result = path.read()

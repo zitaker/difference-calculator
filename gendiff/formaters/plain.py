@@ -1,6 +1,7 @@
 import json
 from gendiff.constants import REMOVED, ADDED, NESTED, CHANGED
-from gendiff.constants import COMPLEX_VALUE, ADDED_TEMPLATE, REMOVED_TEMPLATE, CHANGED_TEMPLATE
+from gendiff.constants import COMPLEX_VALUE, ADDED_TEMPLATE
+from gendiff.constants import REMOVED_TEMPLATE, CHANGED_TEMPLATE
 
 
 def make_str(element):
@@ -10,7 +11,7 @@ def make_str(element):
         return json.dumps(element)
 
 
-def plain(obj_dict, name=''):
+def plain(obj_dict, name=''):   # noqa: C901
     result = []
     for k, v in obj_dict.items():
         path = f'{name}.{k}'.lstrip('.')
