@@ -33,8 +33,7 @@ def test_json_dumps():
         }
     }
 
-    path = open('gendiff/tests/fixtures'
-                '/test_result_json.txt')
+    path = open('gendiff/tests/fixtures/test_result_json.txt')
     expected_result = path.read()
 
     assert json_dumps(obj) == expected_result
