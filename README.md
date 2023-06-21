@@ -12,4 +12,7 @@ Recursive comparison
 https://asciinema.org/a/aU70glJGeG9IGREtMLWCHdkkq  
 
 Plain format  
-https://asciinema.org/a/CvRgWFtMMFstS3YSFgjs5kw3e
+https://asciinema.org/a/CvRgWFtMMFstS3YSFgjs5kw3e  
+
+Json format  
+https://asciinema.org/a/zSZE7TyPU0nHB212wC03WSbaD
