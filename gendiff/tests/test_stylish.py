@@ -1,7 +1,7 @@
 from gendiff.parser import file_parser
 from gendiff.create_diff_get import create_diff_get
 from gendiff.formaters.stylish import stringify
-from gendiff.formaters.stylish import create_stylish
+from gendiff.formaters.stylish import format_stylish
 
 
 def test_create_diff_get():
@@ -78,7 +78,7 @@ def test_stringify():
     assert stringify(obj_dict, level=1) == expected_result
 
 
-def test_create_stylish():
+def test_format_stylish():
     obj = {
         "follow": {
             "type": "removed",
@@ -119,4 +119,4 @@ def test_create_stylish():
   + verbose: true
 }"""
 
-    assert create_stylish(obj) == expected_result
+    assert format_stylish(obj) == expected_result

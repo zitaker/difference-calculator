@@ -1,5 +1,5 @@
 import json
-from gendiff.formaters.plain import plain
+from gendiff.formaters.plain import format_plain
 from gendiff.formaters.plain import make_str
 
 
@@ -24,7 +24,7 @@ def test_make_str():
         assert make_str(obj_json_dumps) == expected_result_dumps
 
 
-def test_plain():
+def test_format_plain():
     obj_dict = {
         'common': {
             'type': 'nested',
@@ -153,4 +153,4 @@ def test_plain():
     path = open('gendiff/tests/fixtures/test_result_plain.txt')
     expected_result = path.read()
 
-    assert plain(obj_dict) == expected_result
+    assert format_plain(obj_dict) == expected_result

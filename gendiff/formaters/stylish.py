@@ -1,7 +1,6 @@
 import json
 from gendiff.constants import REMOVED, ADDED, UNCHANGED, CHANGED
 from gendiff.constants import SPACE_1, SPACE_2, SPACE_4
-from gendiff.str_template import str_template
 
 
 symbols_dict = {UNCHANGED: SPACE_4,
@@ -26,7 +25,7 @@ def stringify(obj_dict, level):
         return json.dumps(obj_dict)
 
 
-def create_stylish(obj_dict, level=0):
+def format_stylish(obj_dict, level=0):
     result = ['{']
     level += 1
     for k, v in obj_dict.items():
@@ -36,27 +35,19 @@ def create_stylish(obj_dict, level=0):
         children = v.get('children')
 
         if types == UNCHANGED or types == ADDED or types == REMOVED:
-            result.append(
-                str_template(
-                    spaces, symbols_dict[types], k, stringify(
-                        value, level + 1)))
+            result.append(f"{spaces}{symbols_dict[types]}"
+                          f"{k}: {stringify(value, level + 1)}")
 
         elif types == CHANGED:
-            result.append(
-                str_template(
-                    spaces, symbols_dict[REMOVED], k, stringify(
-                        value.get('old_value'), level + 1)))
+            result.append(f"{spaces}{symbols_dict[REMOVED]}"
+                          f"{k}: {stringify(value.get('old_value'), level + 1)}")
 
-            result.append(
-                str_template(
-                    spaces, symbols_dict[ADDED], k, stringify(
-                        value.get('new_value'), level + 1)))
+            result.append(f"{spaces}{symbols_dict[ADDED]}"
+                          f"{k}: {stringify(value.get('new_value'), level + 1)}")
 
         else:
-            result.append(
-                str_template(
-                    spaces, symbols_dict[UNCHANGED], k, create_stylish(
-                        children, level)))
+            result.append(f"{spaces}{symbols_dict[UNCHANGED]}"
+                          f"{k}: {format_stylish(children, level)}")
 
     result.append(spaces + '}')
     result = '\n'.join(result)

@@ -1,45 +1,45 @@
 from gendiff.constants import REMOVED, ADDED, UNCHANGED, NESTED, CHANGED
 
 
-def create_diff_get(path_1, path_2):
+def create_diff_get(old_data, new_data):
     result = dict()
-    all_keys = sorted(path_1.keys() | path_2.keys())
+    all_keys = sorted(old_data.keys() | new_data.keys())
 
     for key in all_keys:
-        if key not in path_2:
+        if key not in new_data:
             result[key] = {
                 'type': REMOVED,
-                'value': path_1[key],
+                'value': old_data[key],
                 'children': None
             }
 
-        elif key not in path_1:
+        elif key not in old_data:
             result[key] = {
                 'type': ADDED,
-                'value': path_2[key],
+                'value': new_data[key],
                 'children': None
             }
 
-        elif path_1[key] == path_2[key]:
+        elif old_data[key] == new_data[key]:
             result[key] = {
                 'type': UNCHANGED,
-                'value': path_1[key],
+                'value': old_data[key],
                 'children': None
             }
 
-        elif isinstance(path_1[key], dict) and isinstance(path_2[key], dict):
+        elif isinstance(old_data[key], dict) and isinstance(new_data[key], dict):
             result[key] = {
                 'type': NESTED,
                 'value': None,
-                'children': create_diff_get(path_1[key], path_2[key])
+                'children': create_diff_get(old_data[key], new_data[key])
             }
 
         else:
             result[key] = {
                 'type': CHANGED,
                 'value': {
-                    'old_value': path_1[key],
-                    'new_value': path_2[key]
+                    'old_value': old_data[key],
+                    'new_value': new_data[key]
                 },
                 'children': None
             }
