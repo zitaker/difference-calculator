@@ -11,34 +11,34 @@ def make_str(element):
         return json.dumps(element)
 
 
-def format_plain(obj_dict, name=''):   # noqa: C901
+def format_plain(data, name=''):   # noqa: C901
     result = []
-    for k, v in obj_dict.items():
-        path = f'{name}.{k}'.lstrip('.')
-        types = v.get('type')
-        value = v.get('value')
-        children = v.get('children')
+    for key, value in data.items():
+        path = f'{name}.{key}'.lstrip('.')
+        types = value.get('type')
+        values = value.get('value')
+        children = value.get('children')
 
         if types == ADDED:
-            if isinstance(value, dict):
-                value = COMPLEX_VALUE
+            if isinstance(values, dict):
+                values = COMPLEX_VALUE
             else:
-                value = make_str(value)
-            result.append(ADDED_TEMPLATE.format(path, value))
+                values = make_str(values)
+            result.append(ADDED_TEMPLATE.format(path, values))
 
         elif types == REMOVED:
             result.append(REMOVED_TEMPLATE.format(path))
 
         elif types == CHANGED:
-            if isinstance(value.get('old_value'), dict):
+            if isinstance(values.get('old_value'), dict):
                 old = COMPLEX_VALUE
-                new = make_str(value.get('new_value'))
-            elif isinstance(value.get('new_value'), dict):
-                old = make_str(value.get('old_value'))
+                new = make_str(values.get('new_value'))
+            elif isinstance(values.get('new_value'), dict):
+                old = make_str(values.get('old_value'))
                 new = COMPLEX_VALUE
             else:
-                old = make_str(value.get('old_value'))
-                new = make_str(value.get('new_value'))
+                old = make_str(values.get('old_value'))
+                new = make_str(values.get('new_value'))
             result.append(CHANGED_TEMPLATE.format(path, old, new))
 
         elif types == NESTED:

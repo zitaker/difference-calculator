@@ -35,15 +35,15 @@ def format_stylish(obj_dict, level=0):
         children = v.get('children')
 
         if types == UNCHANGED or types == ADDED or types == REMOVED:
-            result.append(f"{spaces}{symbols_dict[types]}"
-                          f"{k}: {stringify(value, level + 1)}")
+            result.append(f"{spaces}{symbols_dict[types]}{k}: "
+                          f"{stringify(value, level + 1)}")
 
         elif types == CHANGED:
-            result.append(f"{spaces}{symbols_dict[REMOVED]}"
-                          f"{k}: {stringify(value.get('old_value'), level + 1)}")
+            result.append(f"{spaces}{symbols_dict[REMOVED]}{k}: "
+                          f"{stringify(value.get('old_value'), level + 1)}")
 
-            result.append(f"{spaces}{symbols_dict[ADDED]}"
-                          f"{k}: {stringify(value.get('new_value'), level + 1)}")
+            result.append(f"{spaces}{symbols_dict[ADDED]}{k}: "
+                          f"{stringify(value.get('new_value'), level + 1)}")
 
         else:
             result.append(f"{spaces}{symbols_dict[UNCHANGED]}"

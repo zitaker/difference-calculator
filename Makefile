@@ -56,4 +56,3 @@ coverage:
 #poetry run gendiff gendiff/tests/fixtures/filepath1.yaml gendiff/tests/fixtures/filepath2.yaml --format plain
 
 #poetry run gendiff gendiff/tests/fixtures/filepath1.yaml gendiff/tests/fixtures/filepath2.yaml --format json
-#k, v надо имена получше. key value хотя бы

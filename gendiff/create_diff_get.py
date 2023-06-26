@@ -27,7 +27,8 @@ def create_diff_get(old_data, new_data):
                 'children': None
             }
 
-        elif isinstance(old_data[key], dict) and isinstance(new_data[key], dict):
+        elif isinstance(old_data[key], dict) and \
+                isinstance(new_data[key], dict):
             result[key] = {
                 'type': NESTED,
                 'value': None,
