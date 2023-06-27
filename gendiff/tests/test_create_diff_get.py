@@ -37,4 +37,8 @@ def test_create_diff_get():
             "children": None
         }
     }
+
+    # path_3 = open('gendiff/tests/fixtures/test_create_diff_get_result.txt')
+    # expected_result = path_3.read()
+    # expected_result = {'follow': {'children': None, 'type': 'removed', 'value': False}, 'host': {'children': None, 'type': 'unchanged', 'value': 'hexlet.io'}, 'proxy': {'children': None, 'type': 'removed', 'value': '123.234.53.22'}, 'timeout': {'children': None, 'type': 'changed', 'value': {'new_value': 20, 'old_value': 50}}, 'verbose': {'children': None, 'type': 'added', 'value': True}}
     assert actual_result == expected_result

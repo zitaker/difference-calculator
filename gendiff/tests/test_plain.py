@@ -13,7 +13,6 @@ def test_make_str():
     }
 
     expected_result = obj_dict
-
     path = open('gendiff/tests/fixtures/test_plain_make_str.txt')
     expected_result_dumps = path.read()
 
