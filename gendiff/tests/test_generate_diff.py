@@ -7,7 +7,7 @@ def test_generate_diff():
 
     path_stylish = 'gendiff/tests/fixtures/test_result_stylish.txt'
     path_plain = 'gendiff/tests/fixtures/test_result_plain.txt'
-    path_json = 'gendiff/tests/fixtures/test_result_json.txt'
+    path_json = 'gendiff/tests/fixtures/test_result_json.json'
 
     expected_result_1 = open(path_stylish).read()
     expected_result_2 = open(path_plain).read()
