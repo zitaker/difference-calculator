@@ -9,6 +9,7 @@ def generate_diff(old_data, new_data, format='stylish'):
     old_obj = file_parser(old_data)
     new_obj = file_parser(new_data)
     obj_dict = create_diff_get(old_obj, new_obj)
+    print(obj_dict)
 
     if format == 'stylish':
         return format_stylish(obj_dict)

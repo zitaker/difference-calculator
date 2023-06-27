@@ -1,1 +1,0 @@
-{'follow': {'children': None, 'type': 'removed', 'value': False}, 'host': {'children': None, 'type': 'unchanged', 'value': 'hexlet.io'}, 'proxy': {'children': None, 'type': 'removed', 'value': '123.234.53.22'}, 'timeout': {'children': None, 'type': 'changed', 'value': {'new_value': 20, 'old_value': 50}}, 'verbose': {'children': None, 'type': 'added', 'value': True}}
