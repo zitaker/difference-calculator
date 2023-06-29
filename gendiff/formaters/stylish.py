@@ -28,26 +28,26 @@ def stringify(obj_dict, level):
 def format_stylish(obj_dict, level=0):
     result = ['{']
     level += 1
-    for k, v in obj_dict.items():
+    for key, value in obj_dict.items():
         spaces = SPACE_4 * (level - 1)
-        types = v.get('type')
-        value = v.get('value')
-        children = v.get('children')
+        types = value.get('type')
+        values = value.get('value')
+        children = value.get('children')
 
         if types == UNCHANGED or types == ADDED or types == REMOVED:
-            result.append(f"{spaces}{symbols_dict[types]}{k}: "
-                          f"{stringify(value, level + 1)}")
+            result.append(f"{spaces}{symbols_dict[types]}{key}: "
+                          f"{stringify(values, level + 1)}")
 
         elif types == CHANGED:
-            result.append(f"{spaces}{symbols_dict[REMOVED]}{k}: "
-                          f"{stringify(value.get('old_value'), level + 1)}")
+            result.append(f"{spaces}{symbols_dict[REMOVED]}{key}: "
+                          f"{stringify(values.get('old_value'), level + 1)}")
 
-            result.append(f"{spaces}{symbols_dict[ADDED]}{k}: "
-                          f"{stringify(value.get('new_value'), level + 1)}")
+            result.append(f"{spaces}{symbols_dict[ADDED]}{key}: "
+                          f"{stringify(values.get('new_value'), level + 1)}")
 
         else:
             result.append(f"{spaces}{symbols_dict[UNCHANGED]}"
-                          f"{k}: {format_stylish(children, level)}")
+                          f"{key}: {format_stylish(children, level)}")
 
     result.append(spaces + '}')
     result = '\n'.join(result)
