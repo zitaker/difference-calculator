@@ -11,7 +11,6 @@ def test_create_diff_get():
     new_data = parser(text_2, file_format_2)
     actual_result = create_diff_get(old_data, new_data)
 
-    path = open('gendiff/tests/fixtures/'
-                  'test_create_diff_get.json')
+    path = open('gendiff/tests/fixtures/test_create_diff_get.json')
     expected_result = json.loads(path.read())
     assert actual_result == expected_result
