@@ -1,4 +1,5 @@
-from gendiff.parser import file_parser
+from gendiff.read_file import read_file
+from gendiff.parser import parser
 from gendiff.create_diff_get import create_diff_get
 from gendiff.formaters.stylish import format_stylish
 from gendiff.formaters.plain import format_plain
@@ -6,8 +7,10 @@ from gendiff.formaters.json import json_dumps
 
 
 def generate_diff(old_data, new_data, format='stylish'):
-    old_obj = file_parser(old_data)
-    new_obj = file_parser(new_data)
+    text_1, file_format1 = read_file(old_data)
+    text_2, file_format2 = read_file(new_data)
+    old_obj = parser(text_1, file_format1)
+    new_obj = parser(text_2, file_format2)
     obj_dict = create_diff_get(old_obj, new_obj)
 
     if format == 'stylish':
