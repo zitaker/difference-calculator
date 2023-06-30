@@ -1,8 +1,8 @@
 import os
 
 
-def read_file(file_path):
-    format = os.path.splitext(file_path)[-1].lstrip('.')
-    with open(file_path) as file:
+def read_file(path):
+    format = os.path.splitext(path)[-1].lstrip('.')
+    with open(path) as file:
         text = file.read()
         return text, format
