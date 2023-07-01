@@ -18,7 +18,15 @@ coverage-missing:
 	
 coverage:
 	poetry add pytest-cov
-	
+
+#first_installation:
+#poetry shell
+#pip3 install PyYAML
+#poetry install
+#poetry build
+#poetry publish --dry-run
+#python3 -m pip install --user dist/*.whl
+
 #flake8:
 #	poetry run flake8 gendiff
 
