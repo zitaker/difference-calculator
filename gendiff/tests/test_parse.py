@@ -1,12 +1,14 @@
 import json
 from gendiff.generate_diff import read_file
+from gendiff.data_format import data_format
 from gendiff.generate_diff import parse
 
 
 def test_parse():
-    text, file_format_1 = read_file('gendiff/tests/fixtures/file1.json')
-    data = parse(text, file_format_1)
-    path_2 = open('gendiff/tests/fixtures/test_parser.json')
-    expected_result = json.loads(path_2.read())
+    path = 'gendiff/tests/fixtures/file1.json'
+    text = read_file(path)
+    file_format = data_format(text)
+    data = parse(text, file_format)
+    expected_result = json.loads(open(path).read())
     if format == 'json':
-        assert parse(data) == expected_result
+        assert data == expected_result

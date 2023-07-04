@@ -12,17 +12,11 @@ def read_file(path):
         return text
 
 
-def generate_diff(old_data, new_data, path, format='stylish'):
-    # old_obj, path_1 = read_file(old_data)
-    # new_obj, path_2 = read_file(new_data)
-    # text_1 = parse(old_obj, path_1)
-    # text_2 = parse(new_obj, path_2)
-    # obj_dict = create_diff_get(text_1, text_2)
-
+def generate_diff(old_data, new_data, format='stylish'):
     text_1 = read_file(old_data)
     text_2 = read_file(new_data)
-    obj_format_1 = data_format(path)
-    obj_format_2 = data_format(path)
+    obj_format_1 = data_format(old_data)
+    obj_format_2 = data_format(new_data)
     old_obj = parse(text_1, obj_format_1)
     new_obj = parse(text_2, obj_format_2)
     obj_dict = create_diff_get(old_obj, new_obj)
