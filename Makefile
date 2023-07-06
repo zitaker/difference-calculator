@@ -30,6 +30,7 @@ test:
 	poetry run gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format json
 	poetry run pytest -vv
 	poetry run flake8 gendiff
+	poetry run flake8 tests
 
 #first_installation:
 	#poetry shell

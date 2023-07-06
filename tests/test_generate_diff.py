@@ -12,6 +12,7 @@ def test_read_file():
     expected_result = open(path).read()
     assert str(read_file(path)) == expected_result
 
+
 def test_create_diff_get():
     text_1 = read_file('tests/fixtures/file1.json')
     text_2 = read_file('tests/fixtures/file2.json')
