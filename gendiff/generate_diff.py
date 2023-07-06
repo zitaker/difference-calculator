@@ -1,5 +1,6 @@
+import os.path
+
 from gendiff.constants import REMOVED, ADDED, UNCHANGED, NESTED, CHANGED
-from gendiff.data_format import data_format
 from gendiff.parse import parse
 from gendiff.formaters.stylish import format_stylish
 from gendiff.formaters.plain import format_plain
@@ -57,6 +58,11 @@ def create_diff_get(old_data, new_data):
             }
 
     return result
+
+
+def data_format(path):
+    format = os.path.splitext(path)[-1].lstrip('.')
+    return format
 
 
 def generate_diff(old_data, new_data, format='stylish'):

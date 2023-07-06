@@ -2,7 +2,7 @@ import json
 
 from gendiff.generate_diff import read_file
 from gendiff.generate_diff import generate_diff
-from gendiff.data_format import data_format
+from gendiff.generate_diff import data_format
 from gendiff.parse import parse
 from gendiff.generate_diff import create_diff_get
 
@@ -11,6 +11,12 @@ def test_read_file():
     path = 'tests/fixtures/file1.json'
     expected_result = open(path).read()
     assert str(read_file(path)) == expected_result
+
+
+def test_data_format():
+    path = 'tests/fixtures/file1.json'
+    expected_result = 'json'
+    assert data_format(path) == expected_result
 
 
 def test_create_diff_get():

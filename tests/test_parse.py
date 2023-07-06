@@ -1,7 +1,7 @@
 import json
 
 from gendiff.generate_diff import read_file
-from gendiff.data_format import data_format
+from gendiff.generate_diff import data_format
 from gendiff.generate_diff import parse
 
 
