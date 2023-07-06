@@ -1,6 +1,6 @@
 import json
 
-from gendiff.formaters.plain import format_plain
+from gendiff.formaters.plain import plain
 from gendiff.formaters.plain import make_str
 
 
@@ -15,10 +15,10 @@ def test_make_str():
         assert make_str(expected_result_if) == expected_result_else
 
 
-def test_format_plain():
+def test_plain():
     path_1 = open('tests/fixtures/test_plain.json')
     obj_dict = json.loads(path_1.read())
 
     path_2 = open('tests/fixtures/test_result_plain.txt')
     expected_result = path_2.read()
-    assert format_plain(obj_dict) == expected_result
+    assert plain(obj_dict) == expected_result

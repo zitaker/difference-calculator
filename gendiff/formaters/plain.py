@@ -11,7 +11,7 @@ def make_str(element):
         return json.dumps(element)
 
 
-def format_plain(data, name=''):   # noqa: C901
+def plain(data, name=''):   # noqa: C901
     result = []
     for key, value in data.items():
         path = f'{name}.{key}'.lstrip('.')
@@ -43,7 +43,7 @@ def format_plain(data, name=''):   # noqa: C901
 
         elif types == NESTED:
             if isinstance(children, dict):
-                result.append(format_plain(children, path))
+                result.append(plain(children, path))
 
     result = '\n'.join(result)
     return result

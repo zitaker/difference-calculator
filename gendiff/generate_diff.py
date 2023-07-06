@@ -2,8 +2,8 @@ import os.path
 
 from gendiff.constants import REMOVED, ADDED, UNCHANGED, NESTED, CHANGED
 from gendiff.parse import parse
-from gendiff.formaters.stylish import format_stylish
-from gendiff.formaters.plain import format_plain
+from gendiff.formaters.stylish import stylish
+from gendiff.formaters.plain import plain
 from gendiff.formaters.json import json_dumps
 
 
@@ -75,10 +75,10 @@ def generate_diff(old_data, new_data, format='stylish'):
     obj_dict = create_diff_get(old_obj, new_obj)
 
     if format == 'stylish':
-        return format_stylish(obj_dict)
+        return stylish(obj_dict)
 
     elif format == 'plain':
-        return format_plain(obj_dict)
+        return plain(obj_dict)
 
     elif format == 'json':
         return json_dumps(obj_dict)

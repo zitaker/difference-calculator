@@ -1,7 +1,7 @@
 import json
 
 from gendiff.formaters.stylish import stringify
-from gendiff.formaters.stylish import format_stylish
+from gendiff.formaters.stylish import stylish
 
 
 def test_stringify():
@@ -13,7 +13,7 @@ def test_stringify():
     assert stringify(obj_dict, level=1) == expected_result
 
 
-def test_format_stylish():
+def test_stylish():
     path = open('tests/fixtures/test_stringify.json')
     obj_dict = json.loads(path.read())
 
@@ -25,4 +25,4 @@ def test_format_stylish():
   + timeout: 20
   + verbose: true
 }"""
-    assert format_stylish(obj_dict) == expected_result
+    assert stylish(obj_dict) == expected_result

@@ -25,7 +25,7 @@ def stringify(obj_dict, level):
         return json.dumps(obj_dict)
 
 
-def format_stylish(obj_dict, level=0):
+def stylish(obj_dict, level=0):
     result = ['{']
     level += 1
     for key, value in obj_dict.items():
@@ -47,7 +47,7 @@ def format_stylish(obj_dict, level=0):
 
         else:
             result.append(f"{spaces}{symbols_dict[UNCHANGED]}"
-                          f"{key}: {format_stylish(children, level)}")
+                          f"{key}: {stylish(children, level)}")
 
     result.append(spaces + '}')
     result = '\n'.join(result)
