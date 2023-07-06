@@ -53,14 +53,14 @@ coverage:
 #poetry run gendiff file1.json file2.json
 #gendiff file1.json file2.json
 
-#poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json
-#poetry run gendiff gendiff/tests/fixtures/file1.yaml gendiff/tests/fixtures/file2.yaml
-#poetry run gendiff gendiff/tests/fixtures/file1.yml gendiff/tests/fixtures/file2.yml
-#poetry run gendiff gendiff/tests/fixtures/filepath1.yaml gendiff/tests/fixtures/filepath2.yaml
+#poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
+#poetry run gendiff tests/fixtures/file1.yaml tests/fixtures/file2.yaml
+#poetry run gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
+#poetry run gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml
 
-#poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json --format stylish
-#poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json --format plain
+#poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json --format stylish
+#poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json --format plain
 
-#poetry run gendiff gendiff/tests/fixtures/filepath1.yaml gendiff/tests/fixtures/filepath2.yaml --format plain
+#poetry run gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format plain
 
-#poetry run gendiff gendiff/tests/fixtures/filepath1.yaml gendiff/tests/fixtures/filepath2.yaml --format json
+#poetry run gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format json
