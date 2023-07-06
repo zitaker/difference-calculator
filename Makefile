@@ -19,6 +19,18 @@ coverage-missing:
 coverage:
 	poetry add pytest-cov
 
+test:
+	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
+	poetry run gendiff tests/fixtures/file1.yaml tests/fixtures/file2.yaml
+	poetry run gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
+	poetry run gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml
+	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json --format stylish
+	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json --format plain
+	poetry run gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format plain
+	poetry run gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format json
+	poetry run pytest -vv
+	poetry run flake8 gendiff
+
 #first_installation:
 	#poetry shell
 	#pip3 install PyYAML
