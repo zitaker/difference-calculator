@@ -14,6 +14,9 @@ Opportunities:
    * Plain format.
    * Json format.
 
+How to use:  
+```gendiff path_first_file.(json, yaml, yml) path_ second_file.(json, yaml, yml) --format (stylish, plain, json)```
+
 Help output, arguments and options  
 https://asciinema.org/a/6ZXLo2VSle3HgE2gGJpvolUAZ  
 ```poetry run gendiff -h```  
