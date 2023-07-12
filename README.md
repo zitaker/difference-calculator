@@ -43,8 +43,8 @@ https://asciinema.org/a/zSZE7TyPU0nHB212wC03WSbaD
 1) Download the project.
 2) Go to the root directory of the project.
 3) Install it with the command:
-   ```poetry shell```
-   ```pip3 install PyYAML```
-   ```poetry build```
-   ```poetry publish --dry-run```
+   ```poetry shell```  
+   ```pip3 install PyYAML```  
+   ```poetry build```  
+   ```poetry publish --dry-run```  
    ```python3 -m pip install --user dist/*.whl```
