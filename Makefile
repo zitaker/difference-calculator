@@ -32,18 +32,6 @@ test:
 	poetry run flake8 gendiff
 	poetry run flake8 tests
 
-first_installation:
-	poetry shell
-	pip3 install PyYAML
-	poetry build
-	poetry publish --dry-run
-	python3 -m pip install --user dist/*.whl
-
-
-#make lint:
-#	poetry run flake8 gendiff
-#	poetry run pytest -vv
-
 
 #poetry run gendiff -h
 #poetry run gendiff -f
