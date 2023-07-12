@@ -33,3 +33,18 @@ https://asciinema.org/a/CvRgWFtMMFstS3YSFgjs5kw3e
 Json format  
 https://asciinema.org/a/zSZE7TyPU0nHB212wC03WSbaD
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format json```  
+
+### Minimum requirements:  
+1) python 3.8.1.  
+2) pip.
+3) poetry.
+
+### Install:  
+1) Download the project.
+2) Go to the root directory of the project.
+3) Install it with the command:
+   ```poetry shell```
+   ```pip3 install PyYAML```
+   ```poetry build```
+   ```poetry publish --dry-run```
+   ```python3 -m pip install --user dist/*.whl```
