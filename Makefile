@@ -32,13 +32,13 @@ test:
 	poetry run flake8 gendiff
 	poetry run flake8 tests
 
-#first_installation:
-	#poetry shell
-	#pip3 install PyYAML
-	#poetry install
-	#poetry build
-	#poetry publish --dry-run
-	#python3 -m pip install --user dist/*.whl
+first_installation:
+	poetry install
+	poetry shell
+	pip3 install PyYAML
+	poetry build
+	poetry publish --dry-run
+	python3 -m pip install --user dist/*.whl
 
 #flake8:
 #	poetry run flake8 gendiff
