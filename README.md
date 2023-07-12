@@ -30,7 +30,7 @@ https://asciinema.org/a/aU70glJGeG9IGREtMLWCHdkkq
 https://asciinema.org/a/CvRgWFtMMFstS3YSFgjs5kw3e  
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format plain```  
 
-Json format  
+#### Json format  
 https://asciinema.org/a/zSZE7TyPU0nHB212wC03WSbaD
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format json```  
 
