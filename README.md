@@ -7,7 +7,7 @@
 
 ## Difference Calculator  
 
-Opportunities:  
+## Opportunities:  
 1. Support for different input formats: YAML (YML), JSON.
 2. Generating reports in the form of:
    * Recursive comparison.
