@@ -14,7 +14,7 @@
    * Plain format.
    * Json format.
 
-How to use:  
+#### How to use:  
 ```gendiff path_first_file.(json, yaml, yml) path_ second_file.(json, yaml, yml) --format (stylish, plain, json)```
 
 Help output, arguments and options  
@@ -22,11 +22,11 @@ https://asciinema.org/a/6ZXLo2VSle3HgE2gGJpvolUAZ
 ```poetry run gendiff -h```  
 ```poetry run gendiff -f```
 
-Recursive comparison  
+#### Recursive comparison  
 https://asciinema.org/a/aU70glJGeG9IGREtMLWCHdkkq  
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format stylish```  
 
-Plain format  
+#### Plain format  
 https://asciinema.org/a/CvRgWFtMMFstS3YSFgjs5kw3e  
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format plain```  
 
