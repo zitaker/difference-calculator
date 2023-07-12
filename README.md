@@ -22,15 +22,15 @@ https://asciinema.org/a/6ZXLo2VSle3HgE2gGJpvolUAZ
 ```poetry run gendiff -h```  
 ```poetry run gendiff -f```
 
-#### Recursive comparison  
+Recursive comparison  
 https://asciinema.org/a/aU70glJGeG9IGREtMLWCHdkkq  
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format stylish```  
 
-#### Plain format  
+Plain format  
 https://asciinema.org/a/CvRgWFtMMFstS3YSFgjs5kw3e  
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format plain```  
 
-#### Json format  
+Json format  
 https://asciinema.org/a/zSZE7TyPU0nHB212wC03WSbaD
 ```gendiff tests/fixtures/filepath1.yaml tests/fixtures/filepath2.yaml --format json```  
 
