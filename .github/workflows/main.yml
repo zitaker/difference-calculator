@@ -1,50 +1,28 @@
-# name: main
-
-# on:
-#   push:
-#     branches:
-#       - '**'
-#     tags:
-#       - '**'
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - run: |
-#           pip install poetry
-#           make install
-#           make flake8
-#           make pytest
-
-#       - name: Test & publish code coverage
-#         uses: codecov/codecov-action@v3
-#         if: github.ref_name == 'main'
-#         env:
-#           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-#         with:
-#           coverageCommand: make test-coverage
-#           debug: true
-
-name: Always Succeed
+name: main
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - '**'
+    tags:
+      - '**'
 
 jobs:
-  success:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - run: |
+          pip install poetry
+          make install
+          make flake8
+          make pytest
 
-      - name: Echo message
-        run: echo "This job will always succeed"
-
+      - name: Test & publish code coverage
+        uses: codecov/codecov-action@v3
+        if: github.ref_name == 'main'
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
